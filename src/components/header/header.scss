@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  border: 2px solid navy;
+  margin: 10px auto 0 auto;
+  
+  img {
+    max-width: 100px;
+    max-height: 100px;
+  }
+
+  div {
+    font-size: 2em;
+    text-align: center;
+    width: 90%;
+    background-color: silver;
+    height: 100%;
+    margin-right: 20px;
+  }
+}

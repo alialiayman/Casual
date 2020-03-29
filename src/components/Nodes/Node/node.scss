@@ -1,0 +1,18 @@
+.node-container {
+  text-align: center;
+  border-radius: 25%;
+
+  .key-container{
+      font-size: 1em;
+  }
+
+  .children-container {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+
+    div {
+      width: 50%;
+    }
+  }
+}
