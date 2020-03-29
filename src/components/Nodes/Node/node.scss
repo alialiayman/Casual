@@ -11,8 +11,14 @@
     justify-items: center;
     justify-content: center;
 
-    div {
+    .left-node{
       width: 50%;
+      background-color: yellow;
+    }
+
+    .right-node{
+      width: 50%;
+      background-color: magenta;
     }
   }
 }

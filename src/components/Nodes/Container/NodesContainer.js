@@ -22,7 +22,7 @@ const NodesContainer = () => {
             return setRootNode(_rootNode);
         }
         // insert to the right
-        if (nodeValue > node.key) {
+        if (parseInt(nodeValue) > parseInt(node.key)) {
             if (node.right) {
                 // continue searching
                 addNode(node.right, nodeValue);

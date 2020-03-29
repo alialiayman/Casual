@@ -12,8 +12,12 @@ const Node = ({ node }) => {
     const nodeKey = <div className="node-container">
         <div className="key-container">{node.key}</div>
         <div className="children-container">
-            {leftNode}
-            {rightNode}
+            <div className="left-node">
+                {leftNode}
+            </div>
+            <div className="right-node">
+                {rightNode}
+            </div>
         </div>
     </div>;
 
