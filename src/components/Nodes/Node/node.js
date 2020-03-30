@@ -6,17 +6,18 @@ const Node = ({ node }) => {
         return null;
     }
 
-    const leftNode = node.left && <Node node={node.left} />;
-    const rightNode = node.right && <Node node={node.right} />;
-
     const nodeKey = <div className="node-container">
         <div className="key-container">{node.key}</div>
         <div className="children-container">
             <div className="left-node">
-                {leftNode}
+                {
+                    node.left && <Node node={node.left} />
+                }
             </div>
             <div className="right-node">
-                {rightNode}
+                {
+                    node.right && <Node node={node.right} />
+                }
             </div>
         </div>
     </div>;

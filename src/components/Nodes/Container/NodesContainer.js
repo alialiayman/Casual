@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Node from '../Node/node';
 import { cloneDeep } from 'lodash';
 
@@ -8,6 +8,12 @@ let _rootNode;
 const NodesContainer = () => {
 
     let [rootNode, setRootNode] = useState({ key: null, left: null, right: null });
+    useEffect(() => {
+        const savedRootNode = localStorage.getItem('rootNode');
+        if (savedRootNode) {
+            setRootNode(JSON.parse(savedRootNode));
+        }
+    }, []);
 
     const addNode = (node, nodeValue) => {
 
@@ -18,7 +24,7 @@ const NodesContainer = () => {
             node.key = nodeValue;
             node.left = null;
             node.right = null;
-
+            localStorage.setItem('rootNode', JSON.stringify(_rootNode));
             return setRootNode(_rootNode);
         }
         // insert to the right
