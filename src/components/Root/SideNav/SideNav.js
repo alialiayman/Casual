@@ -15,8 +15,8 @@ const SideNav = () => {
 const AlgorithmNav = () => {
     return (
         <Router>
-            <nav aria-label="secondary">
-                <ul>
+            <nav aria-label="secondary" className="sidenav-container">
+                <ul className="sidenav-ul">
                     <li>
                         <Link to="/algorithm/besttrade" exact > Best Trade </Link>
                     </li>
