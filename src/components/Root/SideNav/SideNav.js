@@ -35,6 +35,9 @@ const AlgorithmNav = () => {
                     <li>
                         <Link to="/algorithm/binarytree"  >Binary Tree</Link>
                     </li>
+                    <li>
+                        <Link to="/algorithm/facebook"  >Facebook</Link>
+                    </li>
                 </ul>
             </nav>
         </Router>
