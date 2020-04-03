@@ -1,0 +1,29 @@
+
+  .main-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    .header {
+      width: 100%;
+
+    }
+
+    .main-body {
+      display: flex;
+      justify-content: space-between;
+      border: 1px solid #000;
+      height: 100%;
+
+      .side-nav {
+        width: 20%;
+        border: 1px solid #000;
+      }
+
+      .main {
+        width: 80%;
+        border: 1px solid #000;
+      }
+
+    }
+  }
+

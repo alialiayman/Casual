@@ -1,14 +1,27 @@
 import React from 'react';
-import './App.css';
-import Header from './components/header/header';
-import NodesContainer from './components/Nodes/Container/NodesContainer';
+import './App.scss';
+import Header from './components/Root/Header/Header';
+import SideNav from './components/Root/SideNav/SideNav';
+import Main from './components/Root/Main/Main';
+
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <NodesContainer />
-    </div>
+    <main className="main-container">
+      <div className="header">
+        <Header></Header>
+      </div>
+      <div className="main-body">
+        <div className="side-nav">
+          <SideNav></SideNav>
+        </div>
+        <div className="main">
+          <Main></Main>
+        </div>
+
+      </div>
+    </main>
+
   );
 }
 
