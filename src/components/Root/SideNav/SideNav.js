@@ -3,11 +3,13 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './sidenav.scss'
 
 const SideNav = () => {
-
     return (
-        <Router>
-            <Route path="/algorithm" component={AlgorithmNav}></Route>
-        </Router>
+        <React.Fragment>
+
+            <Router>
+                <Route exact path="/algorithm" component={AlgorithmNav}></Route>
+            </Router>
+        </React.Fragment>
     )
 
 }
@@ -41,6 +43,7 @@ const AlgorithmNav = () => {
                 </ul>
             </nav>
         </Router>
+
     )
 }
 

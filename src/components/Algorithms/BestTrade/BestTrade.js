@@ -1,3 +1,35 @@
+import React, { useState } from 'react';
+
+
+const BestTrade = () => {
+    const [inputArray, setInputArray] = useState('1,5,6,7,34,10');
+    const [result, setResult] = useState([0,0]);
+
+    const handleInputArrayChange = ({ target }) => {
+        setInputArray(target.value);
+    }
+
+    const calculate = () => {
+        setResult(FindBestDays(inputArray.split(',')));
+    }
+    return (
+        <React.Fragment>
+            <input value={inputArray} onChange={handleInputArrayChange}></input>
+            <button type="button" onClick={calculate}> Calculate </button>
+
+            <div>{result}</div>
+
+            <pre>
+                {problem}
+            </pre>
+        </React.Fragment>
+    )
+}
+
+export default BestTrade;
+
+
+
 const prices = [7];
 
 // loop1 from 0 to end with BuyIndex
@@ -10,18 +42,18 @@ function FindBestDays(prices) {
         return [-1, -1];
     }
 
-    if (prices.length === 1){
-        return [0,0];
+    if (prices.length === 1) {
+        return [0, 0];
     }
 
     let maxProfit = 0;
     let buyDay = 0;
     let sellDay = 0;
 
-    for (let i = 0; i < prices.length; i++){
-        for (let j = i + 1; j <prices.length; j++){
+    for (let i = 0; i < prices.length; i++) {
+        for (let j = i + 1; j < prices.length; j++) {
             const profit = prices[j] - prices[i];
-            if (profit > maxProfit){
+            if (profit > maxProfit) {
                 maxProfit = profit;
                 buyDay = i;
                 sellDay = j
@@ -29,26 +61,28 @@ function FindBestDays(prices) {
         }
     }
 
-    return [buyDay,sellDay];
+    return [buyDay, sellDay];
 
 }
 
 const testCases = [
-    [1,5,6,7,34,10],
-    [200, 1,5,6,7,34,10],
-    [1,5,6,7,34,10,300],
-    [10,1,5,6,7,34,10,20],
-    [2,200,1,0,10],
-    [7,10],
+    [1, 5, 6, 7, 34, 10],
+    [200, 1, 5, 6, 7, 34, 10],
+    [1, 5, 6, 7, 34, 10, 300],
+    [10, 1, 5, 6, 7, 34, 10, 20],
+    [2, 200, 1, 0, 10],
+    [7, 10],
     [1]
 
 ]
-testCases.forEach(x=> {
+testCases.forEach(x => {
     console.log(`${x}  ==>  ${FindBestDays(x)}`)
 });
 
 
-`Problem 1
+
+const problem =
+    `Problem 1
 
 Input is an array of Integers which denotes the stock value of company X.
 
