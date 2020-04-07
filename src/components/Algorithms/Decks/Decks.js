@@ -1,3 +1,35 @@
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import Typography from '@material-ui/core/Typography';
+import React from 'react';
+
+const Decks = () => {
+    return (
+        <React.Fragment>
+            <ExpansionPanel expanded>
+                <ExpansionPanelSummary>
+                    <Typography >Solution</Typography>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+
+
+                </ExpansionPanelDetails>
+            </ExpansionPanel>
+            <ExpansionPanel>
+                <ExpansionPanelSummary>
+                    <Typography >Problem</Typography>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                    <Typography>{problem}</Typography>
+                </ExpansionPanelDetails>
+            </ExpansionPanel>
+        </React.Fragment>
+    )
+};
+
+export default Decks;
+
 const completeDeck = new Map();
 
 
@@ -35,6 +67,7 @@ decks.forEach(d => {
     console.log(`${d} output: ${findCompleteDecks(d)}`)
 });
 
+const problem = 
 `Problem 4:
 
 You’re given an X decks of N playing cards with few cards missing. The playing cards can be in the form of an array and is shuffled in any order:

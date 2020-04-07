@@ -1,26 +1,28 @@
 import React from 'react';
 import './App.scss';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/Root/Header/Header';
-import SideNav from './components/Root/SideNav/SideNav';
-import Main from './components/Root/Main/Main';
 
+import NodesContainer from './components/Algorithms/BinaryTree/Nodes/Container/NodesContainer';
+import BestTrade from './components/Algorithms/BestTrade/BestTrade';
+import Flatten from './components/Algorithms/Flatten/Flatten';
+import PopularToys from './components/Algorithms/PopularToys/PopularToys';
+import Decks from './components/Algorithms/Decks/Decks';
+import LinkedWords from './components/Algorithms/LinkedWords/LinkedWords';
 
 function App() {
   return (
-    <main className="main-container">
-      <div className="header">
-        <Header></Header>
-      </div>
-      <div className="main-body">
-        <div className="side-nav">
-          <SideNav></SideNav>
-        </div>
-        <div className="main">
-          <Main></Main>
-        </div>
-
-      </div>
-    </main>
+    <Router>
+      <Header></Header>
+      <main>
+        <Route exact path="/binarytree" component={NodesContainer}></Route>
+        <Route exact path="/besttrade" component={BestTrade}></Route>
+        <Route exact path="/flatten" component={Flatten}></Route>
+        <Route exact path="/popular" component={PopularToys}></Route>
+        <Route exact path="/decks" component={Decks}></Route>
+        <Route exact path="/words" component={LinkedWords}></Route>
+      </main>
+    </Router>
 
   );
 }

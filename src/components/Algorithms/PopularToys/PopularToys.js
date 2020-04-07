@@ -1,3 +1,36 @@
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import Typography from '@material-ui/core/Typography';
+import React from 'react';
+
+const PopularToys = () => {
+    return (
+        <React.Fragment>
+
+       
+        <ExpansionPanel expanded>
+            <ExpansionPanelSummary>
+                <Typography >Solution</Typography>
+            </ExpansionPanelSummary>
+            <ExpansionPanelDetails>
+
+
+            </ExpansionPanelDetails>
+        </ExpansionPanel>
+        <ExpansionPanel>
+            <ExpansionPanelSummary>
+                <Typography >Problem</Typography>
+            </ExpansionPanelSummary>
+            <ExpansionPanelDetails>
+                <Typography>{problem}</Typography>
+            </ExpansionPanelDetails>
+        </ExpansionPanel>
+        </React.Fragment>
+    )
+};
+
+export default PopularToys;
 
 function popularNToys(numToys, topToys, toys, numQuotes, quotes){
 
@@ -47,3 +80,5 @@ console.log(sortedHt.slice(0,2));
 
 
 popularNToys(6,2,['elmo','elsa'],6,['elmo is good', 'elsa is good']);
+
+const problem = ``;

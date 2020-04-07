@@ -1,26 +1,58 @@
 import React from 'react';
-import './node.scss'
+import { styled } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+
+
+const MainContainer = styled(Container)({
+    textAlign: 'center',
+    borderRadius: '25%',
+});
+
+
+
+const KeyContainer = styled(Container)({
+    fontSize: '1em',
+}
+);
+
+const ChildrenContainer = styled(Container)({
+    display: 'flex',
+    justifyItems: 'center',
+    justifyContent: 'center',
+});
+
+const LeftNode = styled(Container)({
+    width: '50%',
+    backgroundColor: 'yellow',
+});
+
+const RightNode = styled(Container)({
+    width: '50%',
+    backgroundColor: 'magenta',
+}
+);
+
 
 const Node = ({ node }) => {
     if (!node || !node.key) {
         return null;
     }
 
-    const nodeKey = <div className="node-container">
-        <div className="key-container">{node.key}</div>
-        <div className="children-container">
-            <div className="left-node">
+    const nodeKey = <MainContainer >
+        <KeyContainer>{node.key}</KeyContainer>
+        <ChildrenContainer >
+            <LeftNode >
                 {
                     node.left && <Node node={node.left} />
                 }
-            </div>
-            <div className="right-node">
+            </LeftNode>
+            <RightNode >
                 {
                     node.right && <Node node={node.right} />
                 }
-            </div>
-        </div>
-    </div>;
+            </RightNode>
+        </ChildrenContainer>
+    </MainContainer>;
 
 
     return (
@@ -30,5 +62,6 @@ const Node = ({ node }) => {
     )
 
 }
+
 
 export default Node;

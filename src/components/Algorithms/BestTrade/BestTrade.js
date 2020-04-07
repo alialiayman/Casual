@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import Typography from '@material-ui/core/Typography';
 
 const BestTrade = () => {
     const [inputArray, setInputArray] = useState('1,5,6,7,34,10');
-    const [result, setResult] = useState([0,0]);
+    const [result, setResult] = useState([0, 0]);
 
     const handleInputArrayChange = ({ target }) => {
         setInputArray(target.value);
@@ -14,14 +17,24 @@ const BestTrade = () => {
     }
     return (
         <React.Fragment>
-            <input value={inputArray} onChange={handleInputArrayChange}></input>
-            <button type="button" onClick={calculate}> Calculate </button>
-
-            <div>{result}</div>
-
-            <pre>
-                {problem}
-            </pre>
+            <ExpansionPanel expanded>
+                <ExpansionPanelSummary>
+                    <Typography >Solution</Typography>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                    <input value={inputArray} onChange={handleInputArrayChange}></input>
+                    <button type="button" onClick={calculate}> Calculate </button>
+                    <div>{result}</div>
+                </ExpansionPanelDetails>
+            </ExpansionPanel>
+            <ExpansionPanel>
+                <ExpansionPanelSummary>
+                    <Typography >Problem</Typography>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                    <Typography>{problem}</Typography>
+                </ExpansionPanelDetails>
+            </ExpansionPanel>
         </React.Fragment>
     )
 }

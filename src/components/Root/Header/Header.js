@@ -1,30 +1,42 @@
 import React from 'react';
-import { Link, BrowserRouter as Router } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { styled } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
 import './header.scss';
+import { Toolbar, Typography } from '@material-ui/core';
+
+const ToolBarFlex = styled(Toolbar)({
+    display: 'flex',
+    justifyContent: 'space-around'
+});
 
 const Header = () => {
 
     return (
-        <Router>
-            <nav aria-label="main" className='main-header-nav'>
-                <ul className="main-header-ul-container">
-                    <li>
-                        <Link to="/"  >Home</Link>
-                    </li>
-                    <li>
-                        <Link to="algorithm"  >Algorithms</Link>
-                    </li>
-                    <li>
-                        <Link to="birthday"  >Birthdays</Link>
-                    </li>
-                    <li>
-                        <Link to="color"  >Colors</Link>
-                    </li>
-                </ul>
-            </nav>
-        </Router>
-    )
 
+        <AppBar position='static' color="transparent">
+            <ToolBarFlex>
+                <Link to="/"><Typography>
+                    Home
+                </Typography></Link>
+
+                <Link to="/binarytree"  >Binary Tree</Link>
+                <Link to="/besttrade"  >Best Trade</Link>
+                <Link to="/flatten"  >Flatten</Link>
+                <Link to="/popular"  >Popular</Link>
+                <Link to="/decks"  >Decks</Link>
+                <Link to="/words"  >Words</Link>
+                <Link to="/birthday"  >Birthdays</Link>
+                <Link to="/color">
+                    <Typography>
+                        Colors
+                    </Typography>
+
+                </Link>
+
+            </ToolBarFlex>
+        </AppBar>
+    )
 }
 
 export default Header;

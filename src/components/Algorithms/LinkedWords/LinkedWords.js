@@ -1,4 +1,38 @@
-const randWords =   ['M>P','L>A','A>M'];
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import Typography from '@material-ui/core/Typography';
+import React from 'react';
+
+const LinkedWords = () => {
+    return (
+        <React.Fragment>
+
+       
+        <ExpansionPanel expanded>
+            <ExpansionPanelSummary>
+                <Typography >Solution</Typography>
+            </ExpansionPanelSummary>
+            <ExpansionPanelDetails>
+
+
+            </ExpansionPanelDetails>
+        </ExpansionPanel>
+        <ExpansionPanel>
+            <ExpansionPanelSummary>
+                <Typography >Problem</Typography>
+            </ExpansionPanelSummary>
+            <ExpansionPanelDetails>
+                <Typography>{problem}</Typography>
+            </ExpansionPanelDetails>
+        </ExpansionPanel>
+        </React.Fragment>
+    )
+};
+
+export default LinkedWords;
+
+const randWords = ['M>P', 'L>A', 'A>M'];
 const result = [];
 
 
@@ -54,7 +88,8 @@ function processEntry(item) {
 makeWord(randWords);
 console.log(result.join(''));
 
-`Problem 3
+const problem =
+    `Problem 3
 
 You have an array of N strings.
 

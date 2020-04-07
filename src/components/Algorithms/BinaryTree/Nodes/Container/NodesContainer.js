@@ -1,8 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import Node from '../Node/node';
 import { cloneDeep } from 'lodash';
-
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import Typography from '@material-ui/core/Typography';
 import Editor from '../../editor/editor';
+import { styled } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+
+
+const MainContainer = styled(Container)({
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+});
+
 
 let _rootNode;
 const NodesContainer = () => {
@@ -54,8 +67,25 @@ const NodesContainer = () => {
 
     return (
         <React.Fragment>
-            <Editor addNode={addNodeHandler} />
-            <Node node={rootNode} />
+            <ExpansionPanel square expanded>
+                <ExpansionPanelSummary>
+                    <Typography >Solution</Typography>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                    <MainContainer>
+                        <Editor addNode={addNodeHandler} />
+                        <Node node={rootNode} />
+                    </MainContainer>
+                </ExpansionPanelDetails>
+            </ExpansionPanel>
+            <ExpansionPanel>
+                <ExpansionPanelSummary>
+                    <Typography >Problem</Typography>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                    <Typography>Problem description</Typography>
+                </ExpansionPanelDetails>
+            </ExpansionPanel>
         </React.Fragment>
     )
 }
