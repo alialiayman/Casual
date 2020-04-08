@@ -2,9 +2,23 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
-import React from 'react';
+import React, { useState } from 'react';
+
+
 
 const Flatten = () => {
+
+    const [inputArray, setInputArray] = useState('1,5,6,7,34,10');
+    const [result, setResult] = useState([0, 0]);
+
+    const handleInputArrayChange = ({ target }) => {
+        setInputArray(target.value);
+    }
+
+    const calculate = () => {
+        //setResult(flatten(inputArray.split(',')));
+    }
+
     return (
         <React.Fragment>
 
@@ -14,7 +28,9 @@ const Flatten = () => {
                     <Typography >Solution</Typography>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-
+                    <input value={inputArray} onChange={handleInputArrayChange}></input>
+                    <button type="button" onClick={calculate}> Calculate </button>
+                    <div>{result}</div>
 
                 </ExpansionPanelDetails>
             </ExpansionPanel>
@@ -51,9 +67,7 @@ flatten(arr);
 
 console.log(result);
 
-const problem =
-    `Problem 2
-
+const problem = `
 Flatten this array out : [1,2,[3,4,[5,6],7,[8,9]]]
 Output should be [1,2,3,4,5,6,7,8,9]
 

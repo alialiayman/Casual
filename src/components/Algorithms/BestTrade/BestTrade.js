@@ -51,7 +51,7 @@ const prices = [7];
 // compute profit if greater than MaxProfit, Replace BuyDay,SellDay and overriteMaxProfit
 
 function FindBestDays(prices) {
-    if (!prices || prices.length == 0) {
+    if (!prices || prices.length === 0) {
         return [-1, -1];
     }
 

@@ -46,11 +46,11 @@ const result = [];
 
 function makeWord(input) {
 
-    if (input.length == 0) {
+    if (input.length === 0) {
         return;
     }
 
-    if (result.length == 0) {
+    if (result.length === 0) {
         result.push(input[0][0]);
         result.push(input[0][2]);
         input.shift();
@@ -68,16 +68,16 @@ function makeWord(input) {
 }
 
 function processEntry(item) {
-    const headIndex = result.findIndex(x => x == item[0]);
+    const headIndex = result.findIndex(x => x === item[0]);
     if (headIndex > 0 && headIndex < result.length - 1) {
         result.splice(headIndex + 1, 0, item[2]);
         return true;
-    } else if (headIndex == result.length - 1) {
+    } else if (headIndex === result.length - 1) {
         result.push(item[2]);
         return true;
     }
 
-    const tailIndex = result.findIndex(x => x == item[2]);
+    const tailIndex = result.findIndex(x => x === item[2]);
     if (tailIndex > -1 && tailIndex < result.length - 1) {
         result.splice(tailIndex, 0, item[0]);
         return true;
