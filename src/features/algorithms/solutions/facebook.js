@@ -17,3 +17,14 @@ function makeWords(input) {
 
 makeWords('ayman');
 console.log(compinations);
+
+
+const facebook = {
+    name: 'Facebook',
+    problem,
+    algorithm,
+    method,
+    testCases
+};
+
+export default facebook;

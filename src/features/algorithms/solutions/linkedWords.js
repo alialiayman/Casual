@@ -1,48 +1,6 @@
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import Typography from '@material-ui/core/Typography';
-import React from 'react';
-
-const LinkedWords = () => {
-    return (
-        <React.Fragment>
-
-       
-        <ExpansionPanel expanded>
-            <ExpansionPanelSummary>
-                <Typography >Solution</Typography>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
 
 
-            </ExpansionPanelDetails>
-        </ExpansionPanel>
-        <ExpansionPanel>
-            <ExpansionPanelSummary>
-                <Typography >Problem</Typography>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
-                <Typography>{problem}</Typography>
-            </ExpansionPanelDetails>
-        </ExpansionPanel>
-        </React.Fragment>
-    )
-};
-
-export default LinkedWords;
-
-const randWords = ['M>P', 'L>A', 'A>M'];
 const result = [];
-
-
-// create a result array and add first item into it, splitt into two items
-// Loop input array from 0 to end with index
-// split array[index] into head and tail
-// find head and tail in result if head found, then add the tail after the head, remove the item from the input array
-//  if tail found, then add the head before the found 
-// If non found skip to next item
-
 
 function makeWord(input) {
 
@@ -88,10 +46,7 @@ function processEntry(item) {
 makeWord(randWords);
 console.log(result.join(''));
 
-const problem =
-    `Problem 3
-
-You have an array of N strings.
+const problem =`You have an array of N strings.
 
 Eg: [“S>P”,”P>A”,”A>I”,”I>N”]
 
@@ -113,3 +68,22 @@ The strings in an array can be in any random order.
 Eg: [“E>N”, “P>E”] -> PEN
 Assume no letter in any word is repeated (You will never have two same letters in a word in any of the test cases)
 `
+
+const algorithm = `// create a result array and add first item into it, splitt into two items
+// Loop input array from 0 to end with index
+// split array[index] into head and tail
+// find head and tail in result if head found, then add the tail after the head, remove the item from the input array
+//  if tail found, then add the head before the found 
+// If non found skip to next item`;
+
+const testCases = [['M>P', 'L>A', 'A>M']];
+
+const linkedWords = {
+    name: 'Linked Words',
+    problem,
+    algorithm,
+    method,
+    testCases
+};
+
+export default linkedWords;
