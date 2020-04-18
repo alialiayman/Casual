@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MaterialTable from 'material-table';
 import { forwardRef } from 'react';
 import AddBox from '@material-ui/icons/AddBox';
@@ -40,6 +40,7 @@ const tableIcons = {
 
 const AgeTable = ({ records }) => {
 
+    const [birthdays, setBirthdays] = useState(records);
     const columns = [
         { title: 'Name', field: 'name' },
         { title: 'Birth date', field: 'birthdate', type: 'date' },
@@ -49,7 +50,7 @@ const AgeTable = ({ records }) => {
         { title: 'age 15h on', field: 'hbirthdate15', type: 'date' },
     ];
 
-    const data = records.map(r => {
+    const data = birthdays.map(r => {
 
         const diffTime = Math.abs(new Date() - new Date(r.birthdate));
         const age = (diffTime / (1000 * 60 * 60 * 24 * 365)).toFixed(2);
@@ -60,6 +61,8 @@ const AgeTable = ({ records }) => {
         const tableRow = { name: r.name, birthdate: r.birthdate, age, hijriAge, hbirthdate, hbirthdate15 };
         return tableRow;
     });
+
+
     const today = moment().format('iDD, iMMM iYYYY');
 
     return (
@@ -72,12 +75,31 @@ const AgeTable = ({ records }) => {
                     icon: tableIcons.Add,
                     tooltip: 'Add Birth',
                     isFreeAction: true,
-                    onClick: (event) => alert("You want to add a new row")
+                    onClick: (event) => {
+                        let result;
+                        if (birthdays) {
+                            result = birthdays.map(r => r);
+                        } else {
+                            result = [];
+                        }
+                        result.push({ name: 'Ayman', birthdate: '26 oct 1970' });
+                        setBirthdays(result);
+                        localStorage.setItem('birthdays', JSON.stringify(result));
+                    }
                 },
                 {
                     icon: tableIcons.Delete,
                     tooltip: 'Delete Birth',
-                    onClick: (event, rowData) => alert("You want to delete " + rowData.name)
+                    onClick: (event, rowData) => {
+
+                        const remaining = birthdays.filter(r => r.name !== rowData.name);
+                        setBirthdays(remaining);
+                        if (birthdays && birthdays.length > 0) {
+                            localStorage.setItem('birthdays', JSON.stringify(remaining));
+                        } else {
+                            localStorage.setItem('birthdays', null);
+                        }
+                    }
                 }
             ]}
             options={{
