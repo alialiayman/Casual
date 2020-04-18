@@ -19,7 +19,7 @@ const Header = () => {
                 <Lnk name="Binary Tree"></Lnk>
                 <Lnk name="Algorithms"></Lnk>
                 <Lnk name="Taxes"></Lnk>
-                <Lnk name="Birthdays"></Lnk>
+                <Lnk name="Hijri Age"></Lnk>
                 <Lnk name="Colors"></Lnk>
             </ToolBarFlex>
         </AppBar>
