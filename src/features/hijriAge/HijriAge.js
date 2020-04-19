@@ -1,21 +1,57 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AgeTable from './components/AgeTable';
+import AgeDetail from './components/AgeDetail';
+import moment from 'moment-hijri';
 
 
 const HijriAge = () => {
 
-    let birthdateItem = localStorage.getItem('birthdays');
+    const [mode, setMode] = useState(0);
+    const initialBirthdays = getDefaultBirthdays();
+    const [birthdays, setBirthdays] = useState(initialBirthdays);
+
+    const handleOnSave = (newRecord) => {
+
+        setBirthdays([...birthdays, { name: newRecord.name, birthdate: moment(newRecord.birthdate).format('DD MMM YYYY') }]);
+        saveLocalStorage(birthdays);
+        setMode(0);
+    }
+    const handleOnAdd = () => {
+        setMode(1);
+    }
+    const handleOnDelete = (rowData) => {
+        const remaining = birthdays.filter(r => r.name !== rowData.name);
+        setBirthdays(remaining);
+        saveLocalStorage(remaining);
+    }
+    return (
+        <React.Fragment>
+            {
+                mode === 0 ? <AgeTable birthdays={birthdays} onAdd={handleOnAdd} onDelete={handleOnDelete} /> : <AgeDetail onSave={handleOnSave} />
+            }
+
+        </React.Fragment>
+    )
+}
+
+function saveLocalStorage(birthdays) {
+    if (birthdays && birthdays.length > 0) {
+        localStorage.setItem('birthdays', JSON.stringify(birthdays));
+    } else {
+        localStorage.setItem('birthdays', null);
+    }
+}
+
+function getDefaultBirthdays() {
+    const birthdateItem = localStorage.getItem('birthdays');
     let data;
     if (birthdateItem) {
         data = JSON.parse(birthdateItem);
-    } 
+    }
     if (!data || data.length === 0) {
         data = defaultData;
     }
-
-    return (
-        <AgeTable records={data} />
-    )
+    return data;
 }
 
 const defaultData = [

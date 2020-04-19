@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import MaterialTable from 'material-table';
 import { forwardRef } from 'react';
 import AddBox from '@material-ui/icons/AddBox';
@@ -38,9 +38,9 @@ const tableIcons = {
     ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
 };
 
-const AgeTable = ({ records }) => {
+const AgeTable = ({ birthdays, onAdd, onDelete }) => {
 
-    const [birthdays, setBirthdays] = useState(records);
+    if (!birthdays) birthdays = [];
     const columns = [
         { title: 'Name', field: 'name' },
         { title: 'Birth date', field: 'birthdate', type: 'date' },
@@ -76,29 +76,14 @@ const AgeTable = ({ records }) => {
                     tooltip: 'Add Birth',
                     isFreeAction: true,
                     onClick: (event) => {
-                        let result;
-                        if (birthdays) {
-                            result = birthdays.map(r => r);
-                        } else {
-                            result = [];
-                        }
-                        result.push({ name: 'Ayman', birthdate: '26 oct 1970' });
-                        setBirthdays(result);
-                        localStorage.setItem('birthdays', JSON.stringify(result));
+                        onAdd();
                     }
                 },
                 {
                     icon: tableIcons.Delete,
                     tooltip: 'Delete Birth',
                     onClick: (event, rowData) => {
-
-                        const remaining = birthdays.filter(r => r.name !== rowData.name);
-                        setBirthdays(remaining);
-                        if (birthdays && birthdays.length > 0) {
-                            localStorage.setItem('birthdays', JSON.stringify(remaining));
-                        } else {
-                            localStorage.setItem('birthdays', null);
-                        }
+                        onDelete(rowData);
                     }
                 }
             ]}

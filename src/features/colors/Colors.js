@@ -15,7 +15,7 @@ const Colors = () => {
             <Color name='Silver' code='#C0C0C0'></Color>
             <Color name='Teal' code='#028080'></Color>
             <div style={{ textAlign: 'center' }}>
-                <a href="https://visme.co/blog/color-combinations" target="_blank">https://visme.co/blog/color-combinations</a>
+                <a href="https://visme.co/blog/color-combinations" target="_blank" rel="noopener noreferrer" >https://visme.co/blog/color-combinations</a>
             </div>
 
         </React.Fragment>
