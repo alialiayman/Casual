@@ -3,7 +3,8 @@ import { makeStyles } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { Formik } from 'formik';
+import { Formik, ErrorMessage } from 'formik';
+import * as yup from 'yup';
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -23,6 +24,20 @@ const AgeDetail = ({ onSave }) => {
         <React.Fragment>
             <Formik
                 initialValues={{ name: '', birthdate: '' }}
+                validate={(values) => {
+                    let errors = {};
+
+                    if (!values.name)
+                        errors.name = 'Name is required';
+                    if (values.name && values.name.length < 2)
+                        errors.name = 'Name should be more than 2 characters long';
+
+                    if (!values.birthdate)
+                        errors.birthdate = 'Birthdate is required';
+
+
+                    return errors;
+                }}
                 onSubmit={(values, { setSubmitting }) => {
                     onSave(values);
                     setSubmitting(false);
@@ -43,7 +58,7 @@ const AgeDetail = ({ onSave }) => {
                                 <TextField name="name" label="Name" onChange={handleChange}
                                     onBlur={handleBlur}
                                     value={values.name} />
-                                {errors.name && touched.name && errors.name}
+                                <ErrorMessage name="name" />
                                 <TextField
                                     label="Birthday"
                                     name="birthdate"
@@ -55,7 +70,7 @@ const AgeDetail = ({ onSave }) => {
                                         shrink: true,
                                     }}
                                 />
-                                {errors.birthdate && touched.birthdate && errors.birthdate}
+                                <ErrorMessage name="birthdate" />
                                 <Button type="submit" disabled={isSubmitting} variant="contained" color="primary">
                                     Add Birth
                                 </Button>
