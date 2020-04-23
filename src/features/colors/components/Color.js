@@ -5,6 +5,11 @@ import Grid from '@material-ui/core/Grid';
 const Color = ({ name, code }) => {
     const complementaryColor = hexComplimentary(code).toUpperCase();
     return (
+        <React.Fragment>
+        <a href="https://colordrop.io">https://colordrop.io</a>
+        <a href="https://web.njit.edu/~walsh/index.php">https://web.njit.edu/~walsh/index.php</a>
+        <a href="http://hajonsoft.com/html/colors.html">http://hajonsoft.com/html/colors.html</a>
+
         <Card>
             <CardHeader title={name + ' ' + code.substr(1)} subheader={'comp = ' + complementaryColor.substr(1)} />
             <CardContent>
@@ -14,7 +19,7 @@ const Color = ({ name, code }) => {
                 </Grid>
             </CardContent>
         </Card>
-
+        </React.Fragment>
     )
 }
 
