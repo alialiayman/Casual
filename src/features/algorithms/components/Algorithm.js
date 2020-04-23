@@ -10,7 +10,6 @@ import Grid from '@material-ui/core/Grid';
 const Algorithm = ({ name, problem, algorithm, method, testCases }) => {
 
     return (
-
         <ExpansionPanel>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                 <Typography color="textPrimary" variant="h5">{name}</Typography>
