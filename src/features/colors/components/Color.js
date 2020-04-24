@@ -6,7 +6,7 @@ const Color = ({ name, code }) => {
     const complementaryColor = hexComplimentary(code).toUpperCase();
     return (
         <React.Fragment>
-        <Card>
+        <Card raised={true} style={{margin: '10px'}}>
             <CardHeader title={name + ' ' + code.substr(1)} subheader={'comp = ' + complementaryColor.substr(1)} />
             <CardContent>
                 <Grid container spacing={3}>
