@@ -14,7 +14,7 @@ const Colors = () => {
             <Color name='Tan' code='#D2B48C'></Color>
             <Color name='Silver' code='#C0C0C0'></Color>
             <Color name='Teal' code='#028080'></Color>
-            <div style={{ textAlign: 'center' }}>
+            <div style={{ textAlign: 'center' , display: 'flex', flexDirection: 'column'}}>
                 <a href="https://visme.co/blog/color-combinations" target="_blank" rel="noopener noreferrer" >https://visme.co/blog/color-combinations</a>
                 <a href="https://colordrop.io">https://colordrop.io</a>
                 <a href="https://web.njit.edu/~walsh/index.php">https://web.njit.edu/~walsh/index.php</a>
