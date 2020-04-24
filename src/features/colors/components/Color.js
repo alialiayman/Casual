@@ -6,12 +6,6 @@ const Color = ({ name, code }) => {
     const complementaryColor = hexComplimentary(code).toUpperCase();
     return (
         <React.Fragment>
-        <a href="https://colordrop.io">https://colordrop.io</a>
-        <a href="https://web.njit.edu/~walsh/index.php">https://web.njit.edu/~walsh/index.php</a>
-        <a href="http://hajonsoft.com/html/colors.html">http://hajonsoft.com/html/colors.html</a>
-        <a href="https://www.color-blindness.com/color-name-hue/">Color Name</a>
-        <a href="http://chir.ag/projects/name-that-color/#6195ED">Name that color</a>
-
         <Card>
             <CardHeader title={name + ' ' + code.substr(1)} subheader={'comp = ' + complementaryColor.substr(1)} />
             <CardContent>

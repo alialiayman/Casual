@@ -16,6 +16,10 @@ const Colors = () => {
             <Color name='Teal' code='#028080'></Color>
             <div style={{ textAlign: 'center' }}>
                 <a href="https://visme.co/blog/color-combinations" target="_blank" rel="noopener noreferrer" >https://visme.co/blog/color-combinations</a>
+                <a href="https://colordrop.io">https://colordrop.io</a>
+                <a href="https://web.njit.edu/~walsh/index.php">https://web.njit.edu/~walsh/index.php</a>
+                <a href="http://hajonsoft.com/html/colors.html">http://hajonsoft.com/html/colors.html</a>
+                <a href="https://www.color-blindness.com/color-name-hue/">Color Name</a>
             </div>
 
         </React.Fragment>
