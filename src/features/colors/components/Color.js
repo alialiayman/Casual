@@ -9,6 +9,7 @@ const Color = ({ name, code }) => {
         <a href="https://colordrop.io">https://colordrop.io</a>
         <a href="https://web.njit.edu/~walsh/index.php">https://web.njit.edu/~walsh/index.php</a>
         <a href="http://hajonsoft.com/html/colors.html">http://hajonsoft.com/html/colors.html</a>
+        <a href="https://www.color-blindness.com/color-name-hue/">Color Name</a>
         <a href="http://chir.ag/projects/name-that-color/#6195ED">Name that color</a>
 
         <Card>
