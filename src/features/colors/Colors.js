@@ -24,6 +24,8 @@ const Colors = () => {
                 <a href="https://www.crazyegg.com/blog/website-color-palettes/">The best Palettes</a>
                 <a href="https://material.io/design/color/the-color-system.html#color-usage-and-palettes">Color System</a>
                 <a href="https://webflow.com/blog/web-design-101-color-theory">Color Theory</a>
+                <a href="https://material.io/design/color/the-color-system.html#color-usage-and-palettes">Material color system</a>
+
             </div>
 
         </React.Fragment>
