@@ -26,6 +26,11 @@ const Colors = () => {
                 <a href="https://webflow.com/blog/web-design-101-color-theory">Color Theory</a>
                 <a href="https://material.io/design/color/the-color-system.html#color-usage-and-palettes">Material color system</a>
                 <a href="https://mycolor.space/">Generate Palette</a>
+        <a href="https://material.io/resources/color/#!/?view.left=0&view.right=0">Material color viewer [UI]</a>
+        <a href="https://material.io/inline-tools/color/">Material inline color viewer [UI]</a>
+        
+        
+        
             </div>
 
         </React.Fragment>
