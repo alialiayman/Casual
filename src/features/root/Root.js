@@ -5,6 +5,7 @@ import Algorithms from '../algorithms/Algorithms'
 import BinaryTree from '../binaryTree/BinaryTree'
 import Colors from '../colors/Colors';
 import HijriAge from '../hijriAge/HijriAge';
+import Taxes from '../taxes/Taxes';
 
 const Root = ()=> {
     return (
@@ -13,6 +14,7 @@ const Root = ()=> {
             <Route exact path="/" component={null}></Route>
             <Route exact path="/binarytree" component={BinaryTree}></Route>
             <Route exact path="/algorithms" component={Algorithms}></Route>
+            <Route exact path="/taxes" component={Taxes}></Route>
             <Route exact path="/colors" component={Colors}></Route>
             <Route exact path="/hijriage" component={HijriAge}></Route>
         </React.Fragment>
