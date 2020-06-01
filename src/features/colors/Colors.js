@@ -20,7 +20,7 @@ const Colors = () => {
                 <a href="https://web.njit.edu/~walsh/index.php">https://web.njit.edu/~walsh/index.php</a>
                 <a href="http://hajonsoft.com/html/colors.html">http://hajonsoft.com/html/colors.html</a>
                 <a href="https://www.color-blindness.com/color-name-hue/">Color Name</a>
-                <a href="https://websitesetup.org/website-color-schemes/">Color Rules</a>
+                <a href="https://websitesetup.org/website-color-schemes/">Color for Industries</a>
                 <a href="https://www.crazyegg.com/blog/website-color-palettes/">The best Palettes</a>
                 <a href="https://material.io/design/color/the-color-system.html#color-usage-and-palettes">Color System</a>
                 <a href="https://webflow.com/blog/web-design-101-color-theory">Color Theory</a>
