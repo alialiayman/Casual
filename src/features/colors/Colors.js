@@ -29,7 +29,7 @@ const Colors = () => {
         <a href="https://material.io/resources/color/#!/?view.left=0&view.right=0">Material color viewer [UI]</a>
         <a href="https://material.io/inline-tools/color/">Material inline color viewer [UI]</a>
         
-        
+        <a href="https://www.tailorbrands.com/blog/logo-color-combinations">color combinations</a>
         
             </div>
 
