@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import { Card, CardHeader, CardContent } from '@material-ui/core'
 import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 import convert from 'color-convert'
 
 const Color = ({ name, code, url, title }) => {
     const hsl = convert.hex.hsl(code);
     const rgb = convert.hex.rgb(code);
-    const [saturation, setSaturation] = useState(100);
+    const [saturation, setSaturation] = useState(hsl[1]);
     const [luminance, setLuminance] = useState(90);
 
     return (
@@ -21,10 +22,17 @@ const Color = ({ name, code, url, title }) => {
                             <div style={{ marign: '0 1rem', color: `hsl(${hsl[0]},${saturation}%,${luminance}%)` }}>{`hsl(${hsl[0]},${saturation},${luminance})=`}{convert.hsl.hex(hsl[0], saturation, luminance)}</div>
                         </Grid>
                         <Grid item xs={4}>
-                            <div style={{ marign: '0 1rem', height: '100%', backgroundColor: `hsl(${hsl[0]},${saturation}%, 90%)`, borderLeftStyle: 'solid', borderLeftWidth: '2rem', borderLeftColor: `hsl(${hsl[0]},${saturation}%, 30%)`, borderRightWidth: '2rem', borderRightStyle: 'solid', borderRightColor: `hsl(${hsl[0]},${saturation}%,50%)`, display: 'flex', justifyContent: 'center', alignItems: 'center' , alignContent: 'stretch'}}>
-                                <a href={url} target="_blank" style={{color: `hsl(${hsl[0]},${saturation}%, 10%)`}}>
-                                    {title}
-                                </a>
+                            <div style={{ color: `hsl(${hsl[0]},${saturation}%, 10%)`, backgroundColor: `hsl(${hsl[0]},${saturation}%, 60%)`, padding: '0.5rem' }}>
+                                Luminance 10% text on 60% background
+                                </div>
+                            <div style={{ display: 'flex', justifyContent: 'center', padding: '1.5rem', backgroundColor: `hsl(${hsl[0]},${saturation}%, 95%)` }}>
+                                <span style={{ color: `hsl(${hsl[0]},${saturation}%, 10%)` }} onClick={()=> window.open(url)}>
+                                    {title} + ' Luminance 10% text on 95% background'
+                                </span>
+
+                            </div>
+                            <div style={{ color: `hsl(${hsl[0]},${saturation}%, 95%)`, backgroundColor: `hsl(${hsl[0]},${saturation}%,30%)`, padding: '0.5rem' }}>
+                                Luminance 95% text on 30% background
                             </div>
                         </Grid>
                     </Grid>
