@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { Grid, Slider, Checkbox, FormControlLabel } from '@material-ui/core';
-import convert, { rgb } from 'color-convert'
-
+import { Grid, Slider, Checkbox, FormControlLabel, TextField } from '@material-ui/core';
+import convert, { rgb } from 'color-convert';
+import ColorHelper from 'color-to-name';
 
 
 const ColorCalculator = () => {
@@ -16,6 +16,8 @@ const ColorCalculator = () => {
         hex: '000000'
     });
 
+    const [hexVal, setHexVal] = useState('000000');
+
 
     const handleUserColorChange = (channel, val) => {
         const newColor = { r: userColor.r, g: userColor.g, b: userColor.b, h: userColor.h, s: userColor.s, l: userColor.l };
@@ -24,17 +26,17 @@ const ColorCalculator = () => {
         switch (channel) {
             case 'r':
 
-                    newColor.r = val;
-                
+                newColor.r = val;
+
                 break;
             case 'g':
 
-                    newColor.g = val;
-                
+                newColor.g = val;
+
                 break;
             case 'b':
 
-                    newColor.b = val;
+                newColor.b = val;
                 break;
             case 'h':
                 const rgbColorh = convert.hsl.rgb(val, newColor.s, newColor.l);
@@ -54,15 +56,24 @@ const ColorCalculator = () => {
                 newColor.g = rgbColorl[1];
                 newColor.b = rgbColorl[2];
                 break;
+            case 'hex':
+                if (val.length != 6) {
+                    return
+                }
+                setHexVal(val);
+                const rgbColorHex = convert.hex.rgb(val);
+                newColor.r = rgbColorHex[0];
+                newColor.g = rgbColorHex[1];
+                newColor.b = rgbColorHex[2];
+                break;
         }
-
-
         const hsl = convert.rgb.hsl(newColor.r, newColor.g, newColor.b);
         const hex = convert.rgb.hex(newColor.r, newColor.g, newColor.b);
         newColor.h = hsl[0];
         newColor.s = hsl[1];
         newColor.l = hsl[2];
         newColor.hex = hex;
+        setHexVal(hex);
         setUserColor(newColor);
 
     }
@@ -82,7 +93,10 @@ const ColorCalculator = () => {
 
             <Grid item xs={3}>
                 <div style={{ textAlign: 'center' }}>{`rgb(${userColor.r},${userColor.g},${userColor.b})`}</div>
-                <div style={{ textAlign: 'center' }}>{`hex(${userColor.hex})`}</div>
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+
+                    <TextField value={hexVal} label="Hex #" onChange={(e)=> handleUserColorChange('hex',e.target.value)} />
+                </div>
 
             </Grid>
             <Grid container style={{ height: '200px', padding: '1rem' }} justify="center" spacing={2}>
@@ -124,7 +138,7 @@ const ColorCalculator = () => {
                     </Grid>
                 </Grid>
                 <Grid item xs={4}>
-
+                    <ColorName hex={userColor.hex} />
                 </Grid>
                 <Grid item xs={4}>
                     <Grid container style={{ height: '300px', padding: '1rem' }}>
@@ -165,11 +179,36 @@ const ColorCalculator = () => {
 
                 </Grid>
             </Grid>
-
-
         </Grid>
     )
 
 }
 
 export default ColorCalculator;
+
+
+const ColorName = ({ hex }) => {
+    const closestColor = ColorHelper.findClosestColor('#' + hex);
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <div>
+
+                {(closestColor.color.toLowerCase() === '#' + hex.toLowerCase()) && 'Exact color'}
+            </div>
+            <div>
+
+                {(closestColor.color.toLowerCase() !== '#' + hex.toLowerCase()) && 'Closest color'}
+            </div>
+            <div style={{height: '50px', width: '40%', backgroundColor: closestColor.color}}>
+
+            </div>
+            <div>
+                {closestColor.color}
+            </div>
+            <div style={{ fontSize: '1.5rem' }}>
+                {closestColor.name}
+            </div>
+        </div>
+    )
+}
