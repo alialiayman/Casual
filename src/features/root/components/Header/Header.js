@@ -16,11 +16,11 @@ const Header = () => {
                 <Link to="/"><Typography>
                     Home
                 </Typography></Link>
-                <Lnk name="Binary Tree"></Lnk>
-                <Lnk name="Algorithms"></Lnk>
-                <Lnk name="Taxes"></Lnk>
-                <Lnk name="Hijri Age"></Lnk>
                 <Lnk name="Colors"></Lnk>
+                <Lnk name="Hijri Age"></Lnk>
+                <Lnk name="Taxes"></Lnk>
+                <Lnk name="Algorithms"></Lnk>
+                <Lnk name="Binary Tree"></Lnk>
             </ToolBarFlex>
         </AppBar>
     )
