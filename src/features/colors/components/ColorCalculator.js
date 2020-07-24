@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import { Grid, Slider, Checkbox, FormControlLabel, TextField } from '@material-ui/core';
-import convert, { rgb } from 'color-convert';
+import { Grid, Slider, TextField } from '@material-ui/core';
+import convert from 'color-convert';
 import ColorHelper from 'color-to-name';
+import React, { useState } from 'react';
 
 
 const ColorCalculator = () => {
@@ -21,21 +21,15 @@ const ColorCalculator = () => {
 
     const handleUserColorChange = (channel, val) => {
         const newColor = { r: userColor.r, g: userColor.g, b: userColor.b, h: userColor.h, s: userColor.s, l: userColor.l };
-        let difference = 0;
 
         switch (channel) {
             case 'r':
-
                 newColor.r = val;
-
                 break;
             case 'g':
-
                 newColor.g = val;
-
                 break;
             case 'b':
-
                 newColor.b = val;
                 break;
             case 'h':
@@ -57,7 +51,7 @@ const ColorCalculator = () => {
                 newColor.b = rgbColorl[2];
                 break;
             case 'hex':
-                if (val.length != 6) {
+                if (val.length !== 6) {
                     return
                 }
                 setHexVal(val);
@@ -65,6 +59,8 @@ const ColorCalculator = () => {
                 newColor.r = rgbColorHex[0];
                 newColor.g = rgbColorHex[1];
                 newColor.b = rgbColorHex[2];
+                break;
+            default:
                 break;
         }
         const hsl = convert.rgb.hsl(newColor.r, newColor.g, newColor.b);
@@ -82,6 +78,11 @@ const ColorCalculator = () => {
 
             <Grid item xs={3}>
                 <div style={{ textAlign: 'center' }}>{`hsl(${userColor.h},${userColor.s},${userColor.l})`}</div>
+                <div>
+
+                    {`cymk(${convert.hsl.cmyk(userColor.h, userColor.s, userColor.l)})`}
+                </div>
+
 
             </Grid>
 
@@ -95,7 +96,7 @@ const ColorCalculator = () => {
                 <div style={{ textAlign: 'center' }}>{`rgb(${userColor.r},${userColor.g},${userColor.b})`}</div>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
 
-                    <TextField value={hexVal} label="Hex #" onChange={(e)=> handleUserColorChange('hex',e.target.value)} />
+                    <TextField value={hexVal} label="Hex #" onChange={(e) => handleUserColorChange('hex', e.target.value)} />
                 </div>
 
             </Grid>
@@ -200,11 +201,14 @@ const ColorName = ({ hex }) => {
 
                 {(closestColor.color.toLowerCase() !== '#' + hex.toLowerCase()) && 'Closest color'}
             </div>
-            <div style={{height: '50px', width: '40%', backgroundColor: closestColor.color}}>
+            <div style={{ height: '50px', width: '40%', backgroundColor: closestColor.color }}>
 
             </div>
             <div>
-                {closestColor.color}
+                <div>
+                    {closestColor.color}
+                </div>
+                {`cymk(${convert.hex.cmyk(closestColor.color)})`}
             </div>
             <div style={{ fontSize: '1.5rem' }}>
                 {closestColor.name}

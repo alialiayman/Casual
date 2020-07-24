@@ -1,10 +1,9 @@
-import React from 'react';
 import { makeStyles } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import { Formik, ErrorMessage } from 'formik';
-import * as yup from 'yup';
+import { ErrorMessage, Formik } from 'formik';
+import React from 'react';
 
 const useStyles = makeStyles((theme) => ({
     container: {

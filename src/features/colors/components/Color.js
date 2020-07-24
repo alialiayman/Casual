@@ -1,14 +1,13 @@
-import React, { useState } from 'react'
-import { Card, CardHeader, CardContent } from '@material-ui/core'
+import { Card, CardContent, CardHeader } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
-import convert from 'color-convert'
+import convert from 'color-convert';
+import React, { useState } from 'react';
 
 const Color = ({ name, code, url, title }) => {
     const hsl = convert.hex.hsl(code);
     const rgb = convert.hex.rgb(code);
-    const [saturation, setSaturation] = useState(hsl[1]);
-    const [luminance, setLuminance] = useState(90);
+    const [saturation] = useState(hsl[1]);
+    const [luminance] = useState(90);
 
     return (
         <React.Fragment>
@@ -26,7 +25,7 @@ const Color = ({ name, code, url, title }) => {
                                 Luminance 10% text on 60% background
                                 </div>
                             <div style={{ display: 'flex', justifyContent: 'center', padding: '1.5rem', backgroundColor: `hsl(${hsl[0]},${saturation}%, 95%)` }}>
-                                <span style={{ color: `hsl(${hsl[0]},${saturation}%, 10%)` }} onClick={()=> window.open(url)}>
+                                <span style={{ color: `hsl(${hsl[0]},${saturation}%, 10%)` }} onClick={() => window.open(url)}>
                                     {title} + ' Luminance 10% text on 95% background'
                                 </span>
 
