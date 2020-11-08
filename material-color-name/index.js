@@ -1,7 +1,8 @@
 const puppeteer = require('puppeteer');
 const ColorHelper = require('color-to-name');
 const fs = require('fs')
-
+const express = require('express')
+const app = new express();
 automate();
 
 
@@ -19,7 +20,16 @@ async function automate(res) {
 
     fs.writeFileSync('material-colors-names.html', contentWithNames)
 
+    app.get('/', function(request, response){
+        response.sendFile(__dirname + '/material-colors-names.html');
+        console.log('%c 🍌 __dirname + /material-colors-names.html: ', 'font-size:20px;background-color: #FFDD4D;color:#fff;', __dirname + '/material-colors-names.html');
+    });
 
+    app.listen(4000);
+
+
+
+console.log("Running at Port 4000");
 }
 
 function colorName(input) {

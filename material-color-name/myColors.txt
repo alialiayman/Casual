@@ -1,0 +1,45 @@
+Colors with triadic from https://www.sessions.edu/color-calculator/
+Red
+    Persian Red: #D32F2F      #2f2fd3,#d3d32f
+    Red Orange: #F44336         #4f36f4,#dbf436
+    Pink :#FFCDD2       #cdd2ff,#d2ffcd
+
+Blue
+    Denim: #1976D2   Pacific Blue: #0288D1
+    Dodger: #2196F3  Deep Skye Blue: #03A9F4
+    Columbia Blue: #BBDEFB
+Cyan
+    Eastern Blue: #0097A7
+    Dark Turquoise: #00BCD4
+    Pale Turquoise: #B2EBF2
+
+Teal
+    Pine Green: #00796B
+    Dark Cyan: #009688
+    Cruise: #B2DFDB
+
+Green
+    Sushi: #689F38       Japanese Laurel: #388E3C  Earls Green: #AFB42B
+    Mantis: #8BC34A      Fruit Salad: #4CAF50      Las Palmos: #CDDC39
+    Snowy Mint: #DCEDC8  Granny Apple: #C8E6C9     Mimosa: #F0F4C3
+
+Yellow
+    Sunglow : #FBC02D
+    Gorse: #FFEB3B
+    Lemon Chiffon: #FFF9C4
+Orange 
+    Tangerine: #F57C00      Cinnabar: #E64A19
+    Orange Peel: #FF9800    Outrageous Orange: #FF5722
+    Moccasin: #FFE0B2       Your Pink: #FFCCBC
+Brown
+    Very Dark Brown: #5D4037
+    Tobacco Brown: #795548
+    Swiss Coffee: #D7CCC8
+Gray
+    Dim Gray: #616161
+    Dark Gray: #9E9E9E
+    White Smoke: #F5F5F5
+Blue Gray
+    San Juan: #455A64
+    Hoki: #607D8B
+    Link Water: #CFD8DC
