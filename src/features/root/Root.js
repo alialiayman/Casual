@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './components/Header/Header';
 import  {Route} from 'react-router-dom';
 import Algorithms from '../algorithms/Algorithms'
-import BinaryTree from '../binaryTree/BinaryTree'
+import BinaryTree from '../BinaryTree/BinaryTree'
 import Colors from '../colors/Colors';
 import HijriAge from '../hijriAge/HijriAge';
 import Taxes from '../taxes/Taxes';
