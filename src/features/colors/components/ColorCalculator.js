@@ -2,6 +2,7 @@ import { Grid, Slider, TextField } from '@material-ui/core';
 import convert from 'color-convert';
 import ColorHelper from 'color-to-name';
 import React, { useState } from 'react';
+import ColorHarmony from './ColorHarmony';
 
 
 const ColorCalculator = () => {
@@ -180,6 +181,10 @@ const ColorCalculator = () => {
 
                 </Grid>
             </Grid>
+        
+        <Grid item xs={12} style={{marginTop: '9rem'}}>
+        <ColorHarmony code={hexVal} />
+        </Grid>
         </Grid>
     )
 

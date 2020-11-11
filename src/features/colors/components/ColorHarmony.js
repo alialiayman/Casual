@@ -5,8 +5,17 @@ import ColorScheme from 'color-scheme';
 import React from 'react';
 
 const ColorHarmony = ({ code }) => {
-    const theCode = code.split('#')[1].trim();
-    const theName = code.split('#')[0];
+    const codeSplit = code.split('#');
+    let theCode = '';
+    let theName = '';
+    if (codeSplit.length > 1) {
+         theCode = codeSplit[1].trim();
+         theName = codeSplit[0];
+    } else {
+         theCode = codeSplit[0].trim();
+         theName = '';
+    }
+
     const hsl = convert.hex.hsl(theCode);
     const rgb = convert.hex.rgb(theCode);
 
