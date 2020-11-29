@@ -1,52 +1,60 @@
+const { forEach } = require("lodash");
+
+const algorithm = `// create a result string ==> result = ''
+// Create lookup ==> new Map()
+// Loop input array and populate lookup ==> lookup.set(input[i].Key, input[i].value)
+// Identify head item -- not sure how. initialize output ==> output = LA
+// identify next item - easy next = lookup.get('A') ==> output += next.value;
+`;
 
 
-const result = [];
+let result = '';
+const keyLookup = new Map();
+const valueLookup = new Map();
+const input = ["S>P", "P>A", "A>I", "I>N"];
+input.forEach(element => {
+    const elementParts = element.split('>')
+    keyLookup.set(elementParts[0], { value: elementParts[1], origin: element });
+    valueLookup.set(elementParts[1], { origin: element });
+});
 
-function makeWord(input) {
+const firstElement = () => {
+
+    for (let i = 0; i < input.length; i++) {
+        const parts = input[i].split('>');
+        const key = parts[0];
+        if (!valueLookup.has(key)) {
+            return keyLookup.get(key);
+        }
+    }
+    return '';
+}
+// OUTPUT:  SPAIN
+function solve(input) {
 
     if (input.length === 0) {
         return;
     }
 
-    if (result.length === 0) {
-        result.push(input[0][0]);
-        result.push(input[0][2]);
-        input.shift();
-    };
-
-    while (input.length > 0) {
-        const inputCopy = [...input];
-        inputCopy.forEach(x => {
-            if (processEntry(x)) {
-                input.splice(input.indexOf(x), 1);
-            }
-        })
+    let nextElement = firstElement() // {value: 'P', origin: "S>P"} //Find element with Key not used as a value
+    if (!nextElement) {
+        return;
     }
-
+    result = nextElement.origin.split('>')[0] + nextElement.value// SP
+    while (true) {
+        nextElement = keyLookup.get(nextElement.value);
+        if (nextElement){
+            result += nextElement.value;
+        } else {
+            break;
+        }
+    }
+    console.log(result);
 }
 
-function processEntry(item) {
-    const headIndex = result.findIndex(x => x === item[0]);
-    if (headIndex > 0 && headIndex < result.length - 1) {
-        result.splice(headIndex + 1, 0, item[2]);
-        return true;
-    } else if (headIndex === result.length - 1) {
-        result.push(item[2]);
-        return true;
-    }
+solve(input);
 
-    const tailIndex = result.findIndex(x => x === item[2]);
-    if (tailIndex > -1 && tailIndex < result.length - 1) {
-        result.splice(tailIndex, 0, item[0]);
-        return true;
-    }
-    return false;
-}
-
-makeWord(randWords);
-console.log(result.join(''));
-
-const problem =`You have an array of N strings.
+const problem = `You have an array of N strings.
 
 Eg: [“S>P”,”P>A”,”A>I”,”I>N”]
 
@@ -69,15 +77,8 @@ Eg: [“E>N”, “P>E”] -> PEN
 Assume no letter in any word is repeated (You will never have two same letters in a word in any of the test cases)
 `
 
-const algorithm = `// create a result array and add first item into it, splitt into two items
-// Loop input array from 0 to end with index
-// split array[index] into head and tail
-// find head and tail in result if head found, then add the tail after the head, remove the item from the input array
-//  if tail found, then add the head before the found 
-// If non found skip to next item`;
-
 const testCases = [['M>P', 'L>A', 'A>M']];
-
+const method = () => { }
 const linkedWords = {
     name: 'Linked Words',
     problem,
@@ -86,4 +87,4 @@ const linkedWords = {
     testCases
 };
 
-export default linkedWords;
+// export default linkedWords;
