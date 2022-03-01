@@ -10,7 +10,6 @@ const Colors = () => {
     }
     return (
         <React.Fragment>
-
             <Tabs
                 value={selectedTab}
                 indicatorColor="primary"
@@ -24,9 +23,9 @@ const Colors = () => {
             </Tabs>
 
             {selectedTab === 0 &&
-
                 <div >
                     <div>
+                        <a href='%PUBLIC_URL%/material.html'>Material color names</a>
                         <div>Red</div>
                         <ColorHarmony code='Persian Red: #D32F2F' />
                         <ColorHarmony code='Red Orange: #F44336' />
