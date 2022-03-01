@@ -20,3 +20,4 @@ Tax what if scenarios to calculate how much your hour is worth
 ```
 My favorite colors with names
 ```
+![image](https://user-images.githubusercontent.com/9623964/156102193-f306ee7e-77ca-4828-93a7-4080cc802f62.png)
