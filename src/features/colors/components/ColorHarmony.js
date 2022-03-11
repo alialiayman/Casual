@@ -20,8 +20,8 @@ const ColorHarmony = ({ code }) => {
   const hsl = convert.hex.hsl(theCode);
   const rgb = convert.hex.rgb(theCode);
 
-  const defaultTriadScheme = new ColorScheme();
-  defaultTriadScheme.from_hex(theCode).scheme("triad").variation("default");
+  const defaultTriadeScheme = new ColorScheme();
+  defaultTriadeScheme.from_hex(theCode).scheme("triade").variation("default");
 
   const hardAnalogicScheme = new ColorScheme();
   hardAnalogicScheme.from_hex(theCode).scheme("analogic").variation("default");
@@ -42,10 +42,10 @@ const ColorHarmony = ({ code }) => {
               {theName + " #" + theCode}
             </Grid>
             <Grid item xs={12}>
-                Triad
+                Triade
               <Divider />
             </Grid>
-            {defaultTriadScheme.colors().map((c) => (
+            {defaultTriadeScheme.colors().map((c) => (
               <Grid item style={{ backgroundColor: "#" + c }}>
                 <div>{c}</div>
                 <div>{`hsl(${convert.hex.hsl(c)})`}</div>
